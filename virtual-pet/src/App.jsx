@@ -1,5 +1,8 @@
 import { useState, useEffect } from "react";
 import { TbBaselineDensityMedium } from "react-icons/tb";
+import { RiArrowDropDownFill } from "react-icons/ri";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import "./App.css";
 import {
   SLEEP_INTERVAL,
@@ -18,6 +21,7 @@ function App() {
     const interval = setInterval(() => {
       setHunger((prev) => Math.max(prev - 1, 0)); // Decreases hunger every 5 seconds
     }, SLEEP_INTERVAL);
+
     return () => clearInterval(interval);
   }, []);
   useEffect(() => {
@@ -35,8 +39,11 @@ function App() {
 
   const boostHunger = () => {
     const newHunger = hunger + REGULAR_FEED_BOOST;
-    if (newHunger > 100) {
-      alert("Stop! Your pet might pop!");
+    if (newHunger > MAX_STATS) {
+      toast.warn("Stop! Your pet will pop!", {
+        position: "bottom-right",
+        autoClose: 2000,
+      });
       return;
     } else {
       setHunger(newHunger);
@@ -46,17 +53,26 @@ function App() {
   const boostHappiness = () => {
     const newHappiness = happiness + REGULAR_HAPPINESS_BOOST;
     if (newHappiness > MAX_STATS) {
-      alert("Stop! Your pet needs a break!");
+      toast.warn("Stop! Your pet needs a break!", {
+        position: "bottom-right",
+        autoClose: 2000,
+      });
       return;
     } else {
       setHappiness(newHappiness);
+    }
+    if (newHappiness < MAX_STATS / 2) {
+      toast("WARNING: Your pet is mega depressed! Help them!");
     }
   };
 
   const boostEnergy = () => {
     const newEnergy = energy + REGULAR_ENERGY_BOOST;
     if (newEnergy > MAX_STATS) {
-      alert("Stop! Your pet needs some rest!");
+      toast.warn("Stop! Your pet needs some rest!", {
+        position: "bottom-right",
+        autoClose: 2000,
+      });
       return;
     } else {
       setEnergy(newEnergy);
@@ -86,10 +102,16 @@ function App() {
             </div>
           </div>
           <div className="action-btns">
-            <button onClick={boostHunger}>Feed</button>
-            <button onClick={boostHappiness}>Play</button>
+            <button onClick={boostHunger}>
+              Feed
+              <RiArrowDropDownFill size={16} />
+            </button>
+            <button onClick={boostHappiness}>
+              Play <RiArrowDropDownFill size={16} />
+            </button>
             <button onClick={boostEnergy}>Nap Time</button>
           </div>
+          <ToastContainer />
         </div>
       </div>
     </>

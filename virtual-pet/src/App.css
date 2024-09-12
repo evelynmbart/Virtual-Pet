@@ -12,9 +12,21 @@
   font-size: 2rem;
 }
 
+.action-btns {
+  display: flex;
+  gap: 20px;
+}
+
 button {
   background-color: #d8a9cd;
   border: none;
   border-radius: 20px;
   padding: 5px 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+button:hover {
+  background-color: #eebbe2;
 }
