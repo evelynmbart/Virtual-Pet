@@ -1,0 +1,20 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  background-color: #96c9dc;
+}
+
+.title {
+  font-family: "DynaPuff", system-ui;
+  color: white;
+  font-size: 2rem;
+}
+
+button {
+  background-color: #d8a9cd;
+  border: none;
+  border-radius: 20px;
+  padding: 5px 10px;
+}

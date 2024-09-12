@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { TbBaselineDensityMedium } from "react-icons/tb";
 import "./App.css";
 import {
   SLEEP_INTERVAL,
@@ -65,7 +66,13 @@ function App() {
   return (
     <>
       <div className="main-container">
-        <nav className="navbar">Virtual Pet</nav>
+        <nav className="navbar">
+          <h2 className="title">Virtual Pet</h2>
+          <div>
+            <TbBaselineDensityMedium size={32} color="white" />
+          </div>
+        </nav>
+        <hr />
         <div className="main-content">
           <div className="stats">
             <div className="hunger-stat">
