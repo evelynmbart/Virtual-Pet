@@ -3,3 +3,26 @@ html {
   height: 100%;
   width: 100%;
 }
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --background-color: white;
+  --foreground-color: #96c9dc;
+  --primary-text-color: white;
+  --secondary-text-color: #96c9dc;
+  --tertiary-text-color: #d8a9cd;
+}
+
+[data-theme="dark"] {
+  --background-color: #182a40;
+  --foreground-color: #5d256c;
+  --primary-text-color: rgb(255, 255, 255);
+  --secondary-text-color: #d6c55a;
+  --tertiary-text-color: #5d256c;
+  --toggle-bg: blue;
+  --toggle-fg: lightblue;
+}

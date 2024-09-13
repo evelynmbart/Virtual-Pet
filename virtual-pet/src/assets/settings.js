@@ -2,8 +2,20 @@ export const MAX_STATS = 100;
 
 export const SLEEP_INTERVAL = 5000;
 
-export const REGULAR_FEED_BOOST = 3;
+// Hunger Boosts
 
-export const REGULAR_HAPPINESS_BOOST = 4;
+export const BUDGET_FEED_BOOST = 3;
+export const REGULAR_FEED_BOOST = 6;
+export const LUXURY_FEED_BOOST = 10
 
+// Happniess Boosts
+
+export const BUDGET_HAPPINESS_BOOST = 3
+export const REGULAR_HAPPINESS_BOOST = 6;
+export const LUXURY_HAPPINESS_BOOST = 10
+
+// Energy Boosts
+
+export const BUDGET_ENERGY_BOOST = 3
 export const REGULAR_ENERGY_BOOST = 5;
+export const LUXURY_ENERGY_BOOST = 10;
