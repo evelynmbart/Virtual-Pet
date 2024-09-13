@@ -1,6 +1,6 @@
 export const MAX_STATS = 100;
 
-export const SLEEP_INTERVAL = 100;
+export const SLEEP_INTERVAL = 5000;
 
 export const REGULAR_FEED_BOOST = 3;
 

@@ -126,7 +126,7 @@ function App() {
         <div className="main-content">
           <div className="stats">
             <div className="hunger-stat">
-              Hunger:
+              Hunger :
               <div className="progress-bar-container">
                 <div className="progress-bar">
                   <div
@@ -151,7 +151,7 @@ function App() {
               </div>
             </div>
             <div className="happiness-stat">
-              Happiness:
+              Happiness :
               <div className="progress-bar-container">
                 <div className="progress-bar">
                   <div
@@ -174,7 +174,7 @@ function App() {
               </div>
             </div>
             <div className="energy-stat">
-              Energy:
+              Energy :
               <div className="progress-bar-container">
                 <div className="progress-bar">
                   <div
