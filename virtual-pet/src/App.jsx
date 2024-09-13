@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
-import { TbBaselineDensityMedium } from "react-icons/tb";
 import { RiArrowDropDownFill } from "react-icons/ri";
 import { ToastContainer, toast } from "react-toastify";
 import { MdOutlinePets } from "react-icons/md";
+import { GiDogBowl, GiTennisBall, GiNightSleep } from "react-icons/gi";
 import "react-toastify/dist/ReactToastify.css";
 import "./App.css";
 import {
@@ -17,16 +17,9 @@ function App() {
   const [hunger, setHunger] = useState(MAX_STATS);
   const [happiness, setHappiness] = useState(MAX_STATS);
   const [energy, setEnergy] = useState(MAX_STATS);
+  const [isFoodClicked, setIsFoodClicked] = useState(false);
 
-  // INTERVAL DECREMENTATION OF STATS
-  // useEffect(() => {
-  //   const interval = setInterval(() => {
-  //     setHunger((prev) => Math.max(prev - 1, 0)); // Decreases hunger every 5 seconds
-  //   }, SLEEP_INTERVAL);
-
-  //   return () => clearInterval(interval);
-  // }, []);
-
+  // DECREMENT INTERVAL IN USEEFFECT
   useEffect(() => {
     const interval = setInterval(() => {
       setHunger((prevHunger) => {
@@ -52,6 +45,7 @@ function App() {
     }, SLEEP_INTERVAL);
     return () => clearInterval(interval);
   }, []);
+
   useEffect(() => {
     const interval = setInterval(() => {
       setEnergy((prevEnergy) => {
@@ -109,6 +103,11 @@ function App() {
     }
   };
 
+  // button dropdown functions
+  const toggleFoodDropdown = () => {
+    setIsFoodClicked(!isFoodClicked);
+  };
+
   return (
     <>
       <div className="main-container">
@@ -133,13 +132,15 @@ function App() {
                     style={{
                       width: `${hunger}%`,
                       backgroundColor:
-                        hunger > 50
-                          ? "#76c7c0"
-                          : hunger <= 50 && hunger >= 20
+                        hunger > 80
+                          ? "#A3EB91"
+                          : hunger < 80 && hunger >= 50
+                          ? "#E3FB8F"
+                          : hunger < 50 && hunger >= 20
                           ? "#FFA500"
                           : hunger < 20
                           ? "#ff4500"
-                          : "#76c7c0",
+                          : "#A3EB91",
                       height: "100%",
                       borderRadius: "20px",
                       transition: "width 0.1s ease-in-out",
@@ -158,13 +159,15 @@ function App() {
                     style={{
                       width: `${happiness}%`,
                       backgroundColor:
-                        happiness > 50
-                          ? "#76c7c0"
-                          : happiness <= 50 && happiness >= 20
+                        happiness > 80
+                          ? "#A3EB91"
+                          : happiness < 80 && happiness >= 50
+                          ? "#E3FB8F"
+                          : happiness < 50 && happiness >= 20
                           ? "#FFA500"
                           : happiness < 20
                           ? "#ff4500"
-                          : "#76c7c0", // Change color if progress < 20%
+                          : "#A3EB91",
                       height: "100%",
                       borderRadius: "20px",
                       transition: "width 0.1s ease-in-out",
@@ -181,13 +184,15 @@ function App() {
                     style={{
                       width: `${energy}%`,
                       backgroundColor:
-                        energy > 50
-                          ? "#76c7c0"
-                          : energy <= 50 && energy >= 20
+                        energy > 80
+                          ? "#A3EB91"
+                          : energy < 80 && energy >= 50
+                          ? "#E3FB8F"
+                          : energy < 50 && energy >= 20
                           ? "#FFA500"
                           : energy < 20
                           ? "#ff4500"
-                          : "#76c7c0", // Change color if progress < 20%
+                          : "#A3EB91",
                       height: "100%",
                       borderRadius: "20px",
                       transition: "width 0.3s ease-in-out",
@@ -198,14 +203,37 @@ function App() {
             </div>
           </div>
           <div className="action-btns">
-            <button onClick={boostHunger}>
-              Feed
-              <RiArrowDropDownFill size={16} />
+            {/*
+            - need accordion drop downs for the buttons 
+            -  will so a budget option, a regular option, and a luxury option 
+              - with the 'feed' button onCLick this should display the food options instead of boosting hunger
+              - need a separate function that decides which food was selected and what amount to boost the progress bar by
+            */}
+            <button className="feed-btn">
+              <div className="food-title" onClick={toggleFoodDropdown}>
+                <GiDogBowl size={16} />
+                Feed
+              </div>
+              <div
+                className="food-dropdown"
+                style={{ display: isFoodClicked ? "block" : "none" }}
+              >
+                <div id="budget-food" onClick={boostHunger}>
+                  Budget
+                </div>
+                <div id="regular-food">Regular</div>
+                <div id="luxury-food">Luxury</div>
+              </div>
             </button>
-            <button onClick={boostHappiness}>
+
+            <button className="play-btn" onClick={boostHappiness}>
+              <GiTennisBall size={16} />
               Play <RiArrowDropDownFill size={16} />
             </button>
-            <button onClick={boostEnergy}>Nap Time</button>
+            <button className="sleep-btn" onClick={boostEnergy}>
+              <GiNightSleep size={16} />
+              Nap Time
+            </button>
           </div>
           <ToastContainer />
         </div>

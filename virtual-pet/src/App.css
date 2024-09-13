@@ -47,7 +47,7 @@
 .action-btns {
   display: flex;
   gap: 20px;
-  align-items: end;
+  flex-direction: column;
 }
 
 .stats {
@@ -62,6 +62,29 @@
   display: flex;
   align-items: center;
   gap: 30px;
+}
+
+.food-title {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.feed-btn {
+  display: flex;
+  flex-direction: column;
+  font-size: 1.5rem;
+  width: 200px;
+}
+
+.food-dropdown {
+  font-size: 1rem;
+  display: flex;
+  gap: 20px;
+}
+
+.food-dropdown > div:hover {
+  color: #96c9dc;
 }
 
 .happiness-stat {
@@ -85,6 +108,7 @@ button {
   display: flex;
   align-items: center;
   border: 1px solid #d8a9cd;
+  gap: 10px;
 }
 
 button:hover {
