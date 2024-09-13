@@ -4,6 +4,8 @@
   align-items: center;
   padding: 0 20px;
   background-color: #96c9dc;
+  margin-bottom: 20px;
+  border-radius: 30px;
 }
 
 .pawOne:hover {
@@ -13,11 +15,18 @@
   color: #e4c699;
 }
 .pawThree:hover {
-  color: #b4b2d0;
+  color: #f4ea94;
 }
 
 .pawFour:hover {
   color: #85b394;
+}
+
+.pawFive:hover {
+  color: #9bdbf4;
+}
+.pawSix:hover {
+  color: #b4b2d0;
 }
 
 .title {
@@ -26,7 +35,7 @@
   font-size: 3em;
   display: flex;
   align-items: center;
-  gap: 5px;
+  gap: 10px;
 }
 
 .action-btns {

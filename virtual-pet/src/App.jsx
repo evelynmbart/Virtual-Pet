@@ -17,7 +17,6 @@ function App() {
   const [hunger, setHunger] = useState(MAX_STATS);
   const [happiness, setHappiness] = useState(MAX_STATS);
   const [energy, setEnergy] = useState(MAX_STATS);
-  const [progress, setProgress] = useState(MAX_STATS);
 
   // INTERVAL DECREMENTATION OF STATS
   // useEffect(() => {
@@ -37,7 +36,7 @@ function App() {
         }
         return prevHunger - 1;
       });
-    }, 5000);
+    }, SLEEP_INTERVAL);
     return () => clearInterval(interval);
   }, []);
 
@@ -50,7 +49,7 @@ function App() {
         }
         return prevHappiness - 1;
       });
-    }, 5000);
+    }, SLEEP_INTERVAL);
     return () => clearInterval(interval);
   }, []);
   useEffect(() => {
@@ -62,7 +61,7 @@ function App() {
         }
         return prevEnergy - 1;
       });
-    }, 5000);
+    }, SLEEP_INTERVAL);
     return () => clearInterval(interval);
   }, []);
 
@@ -74,6 +73,7 @@ function App() {
       toast.warn("Stop! Your pet will pop!", {
         position: "bottom-right",
         autoClose: 2000,
+        theme: "colored",
       });
       return;
     } else {
@@ -87,13 +87,11 @@ function App() {
       toast.warn("Stop! Your pet needs a break!", {
         position: "bottom-right",
         autoClose: 2000,
+        theme: "colored",
       });
       return;
     } else {
       setHappiness(newHappiness);
-    }
-    if (newHappiness < MAX_STATS / 2) {
-      toast("WARNING: Your pet is mega depressed! Help them!");
     }
   };
 
@@ -103,6 +101,7 @@ function App() {
       toast.warn("Stop! Your pet needs some rest!", {
         position: "bottom-right",
         autoClose: 2000,
+        theme: "colored",
       });
       return;
     } else {
@@ -110,7 +109,6 @@ function App() {
     }
   };
 
-  // HTML
   return (
     <>
       <div className="main-container">
@@ -118,12 +116,13 @@ function App() {
           <h2 className="title">
             <MdOutlinePets className="pawOne" />
             <MdOutlinePets className="pawTwo" />
-            Virtual Pet
             <MdOutlinePets className="pawThree" />
+            VIRTUAL PET
             <MdOutlinePets className="pawFour" />
+            <MdOutlinePets className="pawFive" />
+            <MdOutlinePets className="pawSix" />
           </h2>
         </nav>
-        <hr />
         <div className="main-content">
           <div className="stats">
             <div className="hunger-stat">
@@ -133,11 +132,20 @@ function App() {
                   <div
                     style={{
                       width: `${hunger}%`,
-                      backgroundColor: hunger > 30 ? "#76c7c0" : "#ff4500", // Change color if progress < 20%
+                      backgroundColor:
+                        hunger > 50
+                          ? "#76c7c0"
+                          : hunger <= 50 && hunger >= 20
+                          ? "#FFA500"
+                          : hunger < 20
+                          ? "#ff4500"
+                          : "#76c7c0",
                       height: "100%",
                       borderRadius: "20px",
                       transition: "width 0.1s ease-in-out",
                     }}
+
+                    // if hunger > 50 display green, if hunger is < 50 and > 20 display orange, if hunger < 20 display red
                   ></div>
                 </div>
               </div>
@@ -149,7 +157,14 @@ function App() {
                   <div
                     style={{
                       width: `${happiness}%`,
-                      backgroundColor: happiness > 30 ? "#76c7c0" : "#ff4500", // Change color if progress < 20%
+                      backgroundColor:
+                        happiness > 50
+                          ? "#76c7c0"
+                          : happiness <= 50 && happiness >= 20
+                          ? "#FFA500"
+                          : happiness < 20
+                          ? "#ff4500"
+                          : "#76c7c0", // Change color if progress < 20%
                       height: "100%",
                       borderRadius: "20px",
                       transition: "width 0.1s ease-in-out",
@@ -165,7 +180,14 @@ function App() {
                   <div
                     style={{
                       width: `${energy}%`,
-                      backgroundColor: energy > 30 ? "#76c7c0" : "#ff4500", // Change color if progress < 20%
+                      backgroundColor:
+                        energy > 50
+                          ? "#76c7c0"
+                          : energy <= 50 && energy >= 20
+                          ? "#FFA500"
+                          : energy < 20
+                          ? "#ff4500"
+                          : "#76c7c0", // Change color if progress < 20%
                       height: "100%",
                       borderRadius: "20px",
                       transition: "width 0.3s ease-in-out",
