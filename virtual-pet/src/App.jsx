@@ -186,12 +186,12 @@ function App() {
           <MdOutlinePets className="pawSix" />
         </h2>
       </nav>
+      <div className="stats">
+        <HungerStat hunger={hunger} />
+        <HappinessStat happiness={happiness} />
+        <EnergyStat energy={energy} />
+      </div>
       <div className="main-content">
-        <div className="stats">
-          <HungerStat hunger={hunger} />
-          <HappinessStat happiness={happiness} />
-          <EnergyStat energy={energy} />
-        </div>
         <div className="action-btns">
           <FeedBtn
             budgetFoodBoost={budgetFoodBoost}
