@@ -11,11 +11,13 @@ export function PlayBtn({
     setIsPlayClicked(!isPlayClicked);
   };
   return (
-    <button className="btn">
-      <div className="btn-title" onClick={togglePlayDropdown}>
-        <GiTennisBall size={16} />
-        Play
-      </div>
+    <div>
+      <button className="btn">
+        <div className="btn-title" onClick={togglePlayDropdown}>
+          <GiTennisBall size={16} />
+          Play
+        </div>
+      </button>
       <div
         className="food-dropdown"
         style={{ display: isPlayClicked ? "block" : "none" }}
@@ -30,6 +32,6 @@ export function PlayBtn({
           Luxury
         </div>
       </div>
-    </button>
+    </div>
   );
 }

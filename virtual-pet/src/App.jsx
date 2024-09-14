@@ -155,15 +155,15 @@ function App() {
 
   const boostEnergy = () => {
     const newEnergy = energy + REGULAR_ENERGY_BOOST;
+    setIsDarkMode(!isDarkMode);
+    // NEED LOGIC HERE TO CANCEL DARKMODE FROM WORKING
+    // IF PET IS RESTED ENOUGH
     if (newEnergy > MAX_STATS) {
       toast.warn("Stop! Your pet needs some rest!", {
         position: "bottom-right",
         autoClose: 2000,
         theme: "colored",
       });
-      setIsDarkMode(!isDarkMode);
-      // NEED LOGIC HERE TO CANCEL DARKMODE FROM WORKING
-      // IF PET IS RESTED ENOUGH
       return;
     } else {
       setEnergy(newEnergy);

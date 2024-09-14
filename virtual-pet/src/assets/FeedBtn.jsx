@@ -13,14 +13,18 @@ export function FeedBtn({
     setIsFoodClicked(!isFoodClicked);
   };
   return (
-    <button className="btn">
-      <div className="btn-title" onClick={toggleFoodDropdown}>
-        <GiDogBowl size={16} />
-        Feed
-      </div>
+    <div>
+      <button className="btn">
+        <div className="btn-title" onClick={toggleFoodDropdown}>
+          <GiDogBowl size={16} />
+          Feed
+        </div>
+      </button>
       <div
         className="food-dropdown"
-        style={{ display: isFoodClicked ? "block" : "none" }}
+        style={{
+          display: isFoodClicked ? "block" : "none",
+        }}
       >
         <div id="budget-food" onClick={budgetFoodBoost}>
           Budget
@@ -32,6 +36,6 @@ export function FeedBtn({
           Luxury
         </div>
       </div>
-    </button>
+    </div>
   );
 }
