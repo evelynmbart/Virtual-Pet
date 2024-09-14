@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
-import { RiArrowDropDownFill } from "react-icons/ri";
 import { ToastContainer, toast } from "react-toastify";
-import { MdOutlinePets } from "react-icons/md";
+import { MdOutlinePets, MdEdit } from "react-icons/md";
 import "react-toastify/dist/ReactToastify.css";
 import "./App.css";
 import {
@@ -23,12 +22,15 @@ import { NaptimeBtn } from "./assets/NaptimeBtn";
 import { HungerStat } from "./assets/HungerStat";
 import { HappinessStat } from "./assets/HappinessStat";
 import { EnergyStat } from "./assets/EnergyStat";
+import { PetName } from "./assets/PetName";
 
 function App() {
   const [hunger, setHunger] = useState(MAX_STATS);
   const [happiness, setHappiness] = useState(MAX_STATS);
   const [energy, setEnergy] = useState(MAX_STATS);
   const [isDarkMode, setIsDarkMode] = useState(false);
+  const [isEditMode, setIsEditMode] = useState(false);
+  const [name, setName] = useState("");
 
   // DECREMENT INTERVAL IN USEEFFECT
   useEffect(() => {
@@ -173,6 +175,14 @@ function App() {
     }
   };
 
+  const handleNameChange = (e) => {
+    setName(e.target.value);
+  };
+
+  const handleNameSubmit = (e) => {
+    e.preventDefault();
+  };
+
   return (
     <div className="html" data-theme={isDarkMode ? "dark" : "light"}>
       <nav className="navbar">
@@ -192,6 +202,10 @@ function App() {
         <EnergyStat energy={energy} />
       </div>
       <div className="main-content">
+        <PetName
+          handleNameChange={handleNameChange}
+          handleNameSubmit={handleNameChange}
+        />
         <div className="action-btns">
           <FeedBtn
             budgetFoodBoost={budgetFoodBoost}

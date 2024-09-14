@@ -21,7 +21,7 @@ export function FeedBtn({
         </div>
       </button>
       <div
-        className="food-dropdown"
+        className="dropdown-options"
         style={{
           display: isFoodClicked ? "block" : "none",
         }}

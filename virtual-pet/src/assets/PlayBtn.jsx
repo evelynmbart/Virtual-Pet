@@ -19,7 +19,7 @@ export function PlayBtn({
         </div>
       </button>
       <div
-        className="food-dropdown"
+        className="dropdown-options"
         style={{ display: isPlayClicked ? "block" : "none" }}
       >
         <div id="budget-food" onClick={budgetHappinessBoost}>
