@@ -14,7 +14,7 @@ export function PlayBtn({
     <div>
       <button className="btn">
         <div className="btn-title" onClick={togglePlayDropdown}>
-          <GiTennisBall size={16} />
+          <GiTennisBall size={30} />
           Play
         </div>
       </button>

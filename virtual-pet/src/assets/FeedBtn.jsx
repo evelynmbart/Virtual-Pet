@@ -16,7 +16,7 @@ export function FeedBtn({
     <div>
       <button className="btn">
         <div className="btn-title" onClick={toggleFoodDropdown}>
-          <GiDogBowl size={16} />
+          <GiDogBowl size={30} />
           Feed
         </div>
       </button>
