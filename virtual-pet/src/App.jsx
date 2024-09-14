@@ -20,6 +20,9 @@ import {
 import { FeedBtn } from "./assets/FeedBtn";
 import { PlayBtn } from "./assets/PlayBtn";
 import { NaptimeBtn } from "./assets/NaptimeBtn";
+import { HungerStat } from "./assets/HungerStat";
+import { HappinessStat } from "./assets/HappinessStat";
+import { EnergyStat } from "./assets/EnergyStat";
 
 function App() {
   const [hunger, setHunger] = useState(MAX_STATS);
@@ -185,83 +188,9 @@ function App() {
       </nav>
       <div className="main-content">
         <div className="stats">
-          <div className="hunger-stat">
-            Hunger :
-            <div className="progress-bar-container">
-              <div className="progress-bar">
-                <div
-                  style={{
-                    width: `${hunger}%`,
-                    backgroundColor:
-                      hunger > 80
-                        ? "#A3EB91"
-                        : hunger < 80 && hunger >= 50
-                        ? "#E3FB8F"
-                        : hunger < 50 && hunger >= 20
-                        ? "#FFA500"
-                        : hunger < 20
-                        ? "#ff4500"
-                        : "#A3EB91",
-                    height: "100%",
-                    borderRadius: "20px",
-                    transition: "width 0.1s ease-in-out",
-                  }}
-
-                  // if hunger > 50 display green, if hunger is < 50 and > 20 display orange, if hunger < 20 display red
-                ></div>
-              </div>
-            </div>
-          </div>
-          <div className="happiness-stat">
-            Happiness :
-            <div className="progress-bar-container">
-              <div className="progress-bar">
-                <div
-                  style={{
-                    width: `${happiness}%`,
-                    backgroundColor:
-                      happiness > 80
-                        ? "#A3EB91"
-                        : happiness < 80 && happiness >= 50
-                        ? "#E3FB8F"
-                        : happiness < 50 && happiness >= 20
-                        ? "#FFA500"
-                        : happiness < 20
-                        ? "#ff4500"
-                        : "#A3EB91",
-                    height: "100%",
-                    borderRadius: "20px",
-                    transition: "width 0.1s ease-in-out",
-                  }}
-                ></div>
-              </div>
-            </div>
-          </div>
-          <div className="energy-stat">
-            Energy :
-            <div className="progress-bar-container">
-              <div className="progress-bar">
-                <div
-                  style={{
-                    width: `${energy}%`,
-                    backgroundColor:
-                      energy > 80
-                        ? "#A3EB91"
-                        : energy < 80 && energy >= 50
-                        ? "#E3FB8F"
-                        : energy < 50 && energy >= 20
-                        ? "#FFA500"
-                        : energy < 20
-                        ? "#ff4500"
-                        : "#A3EB91",
-                    height: "100%",
-                    borderRadius: "20px",
-                    transition: "width 0.3s ease-in-out",
-                  }}
-                ></div>
-              </div>
-            </div>
-          </div>
+          <HungerStat hunger={hunger} />
+          <HappinessStat happiness={happiness} />
+          <EnergyStat energy={energy} />
         </div>
         <div className="action-btns">
           <FeedBtn
