@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { GiNightSleep } from "react-icons/gi";
 
 export function NaptimeBtn({ boostEnergy }) {
