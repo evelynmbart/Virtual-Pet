@@ -66,11 +66,13 @@ function App() {
           clearInterval(interval);
           return 0;
         }
-        return prevEnergy - 1;
+        const newEnergy = isDarkMode ? prevEnergy + 1 : prevEnergy - 1;
+        if (newEnergy > MAX_STATS) return MAX_STATS;
+        else return newEnergy;
       });
     }, SLEEP_INTERVAL);
     return () => clearInterval(interval);
-  }, []);
+  }, [isDarkMode, setEnergy]);
 
   // ACTION INCREASING BUTTONS
 
@@ -158,21 +160,8 @@ function App() {
     }
   };
 
-  const boostEnergy = () => {
-    const newEnergy = energy + REGULAR_ENERGY_BOOST;
+  const napTime = () => {
     setIsDarkMode(!isDarkMode);
-    // NEED LOGIC HERE TO CANCEL DARKMODE FROM WORKING
-    // IF PET IS RESTED ENOUGH
-    if (newEnergy > MAX_STATS) {
-      toast.warn("Stop! Your pet needs some rest!", {
-        position: "bottom-right",
-        autoClose: 2000,
-        theme: "colored",
-      });
-      return;
-    } else {
-      setEnergy(newEnergy);
-    }
   };
 
   const handleNameChange = (e) => {
@@ -222,7 +211,7 @@ function App() {
             luxuryHappinessBoost={luxuryHappinessBoost}
           />
 
-          <NaptimeBtn boostEnergy={boostEnergy} isDarkMode={isDarkMode} />
+          <NaptimeBtn napTime={napTime} isDarkMode={isDarkMode} />
         </div>
         <ToastContainer />
       </div>

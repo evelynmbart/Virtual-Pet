@@ -1,6 +1,6 @@
 export const MAX_STATS = 100;
 
-export const SLEEP_INTERVAL = 10000;
+export const SLEEP_INTERVAL = 100;
 
 // Hunger Boosts
 
