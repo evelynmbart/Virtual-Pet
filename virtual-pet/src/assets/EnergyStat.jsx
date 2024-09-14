@@ -7,6 +7,7 @@ export function EnergyStat({ energy }) {
           <div
             style={{
               width: `${energy}%`,
+              //i understand this isn't best practice -> switch to switch?
               backgroundColor:
                 energy > 80
                   ? "#A3EB91"
