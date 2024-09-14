@@ -29,7 +29,7 @@ function App() {
   const [happiness, setHappiness] = useState(MAX_STATS);
   const [energy, setEnergy] = useState(MAX_STATS);
   const [isDarkMode, setIsDarkMode] = useState(false);
-  const [isEditMode, setIsEditMode] = useState(false);
+  const [isEditMode, setIsEditMode] = useState(true);
   const [name, setName] = useState("");
 
   // DECREMENT INTERVAL IN USEEFFECT
@@ -181,6 +181,7 @@ function App() {
 
   const handleNameSubmit = (e) => {
     e.preventDefault();
+    setIsEditMode(!isEditMode);
   };
 
   return (
@@ -204,7 +205,10 @@ function App() {
       <div className="main-content">
         <PetName
           handleNameChange={handleNameChange}
-          handleNameSubmit={handleNameChange}
+          handleNameSubmit={handleNameSubmit}
+          isEditMode={isEditMode}
+          setIsEditMode={setIsEditMode}
+          name={name}
         />
         <div className="action-btns">
           <FeedBtn

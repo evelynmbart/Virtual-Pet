@@ -1,19 +1,34 @@
 import { MdEdit } from "react-icons/md";
 
-export function PetName({ handleNameChange, handleNameSubmit }) {
+export function PetName({
+  name,
+  handleNameChange,
+  handleNameSubmit,
+  isEditMode,
+  setIsEditMode,
+}) {
   return (
-    <form onSubmit={handleNameSubmit}>
-      <label>
-        <MdEdit size={16} />
-        Your Pet's Name :
-        <input
-          type="text"
-          className="pet-name-input"
-          onChange={handleNameChange}
-          placeholder="Fluffy"
-        />
-      </label>
-      <button className="submit-name-btn">Submit</button>
-    </form>
+    <div>
+      {isEditMode ? (
+        <form onSubmit={handleNameSubmit}>
+          <label>
+            Your Pet's Name :
+            <input
+              type="text"
+              value={name}
+              className="pet-name-input"
+              onChange={handleNameChange}
+              placeholder="Fluffy"
+            />
+          </label>
+          <button className="submit-name-btn">Submit</button>
+        </form>
+      ) : (
+        <h3 className="pet-name-title">
+          Hi! I'm {name}
+          <MdEdit size={20} onClick={() => setIsEditMode(!isEditMode)} />
+        </h3>
+      )}
+    </div>
   );
 }
