@@ -5,6 +5,8 @@
   display: flex;
   flex-direction: column;
   font-family: "DynaPuff", system-ui;
+  background-image: url("../public/imgs/livingroom\ copy.png");
+  object-fit: cover;
 }
 
 .navbar {
