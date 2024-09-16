@@ -5,7 +5,8 @@ import "react-toastify/dist/ReactToastify.css";
 import "./App.css";
 import {
   MAX_STATS,
-  SLEEP_INTERVAL,
+  INCREASING_INTERVAL,
+  DECREASING_INTERVAL,
   BUDGET_FEED_BOOST,
   BUDGET_HAPPINESS_BOOST,
   BUDGET_ENERGY_BOOST,
@@ -31,6 +32,7 @@ function App() {
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [isEditMode, setIsEditMode] = useState(true);
   const [name, setName] = useState("");
+  const [newGame, setNewGame] = useState(false);
 
   // DECREMENT INTERVAL IN USEEFFECT
   useEffect(() => {
@@ -38,39 +40,40 @@ function App() {
       setHunger((prevHunger) => {
         if (prevHunger == 0) {
           clearInterval(interval);
-          return 0;
+          return handleGameOver();
         }
         return prevHunger - 1;
       });
-    }, SLEEP_INTERVAL);
+    }, DECREASING_INTERVAL);
     return () => clearInterval(interval);
-  }, []);
+  }, [setHunger, isDarkMode]);
 
   useEffect(() => {
     const interval = setInterval(() => {
       setHappiness((prevHappiness) => {
         if (prevHappiness == 0) {
           clearInterval(interval);
-          return 0;
+          return handleGameOver();
         }
         return prevHappiness - 1;
       });
-    }, SLEEP_INTERVAL);
+    }, DECREASING_INTERVAL);
     return () => clearInterval(interval);
-  }, []);
+  }, [setHappiness, isDarkMode]);
 
   useEffect(() => {
+    const time = isDarkMode ? INCREASING_INTERVAL : DECREASING_INTERVAL;
     const interval = setInterval(() => {
       setEnergy((prevEnergy) => {
         if (prevEnergy == 0) {
           clearInterval(interval);
-          return 0;
+          return handleGameOver();
         }
         const newEnergy = isDarkMode ? prevEnergy + 1 : prevEnergy - 1;
         if (newEnergy > MAX_STATS) return MAX_STATS;
         else return newEnergy;
       });
-    }, SLEEP_INTERVAL);
+    }, time);
     return () => clearInterval(interval);
   }, [isDarkMode, setEnergy]);
 
@@ -173,6 +176,18 @@ function App() {
     setIsEditMode(!isEditMode);
   };
 
+  const handleGameOver = () => {
+    alert("Uh oh! Your pet has passed!");
+    setNewGame(!newGame);
+  };
+
+  const resetGame = () => {
+    setHunger(MAX_STATS);
+    setHappiness(MAX_STATS);
+    setEnergy(MAX_STATS);
+    isEditMode(true);
+  };
+
   return (
     <div className="html" data-theme={isDarkMode ? "dark" : "light"}>
       <nav className="navbar">
@@ -214,6 +229,11 @@ function App() {
           <NaptimeBtn napTime={napTime} isDarkMode={isDarkMode} />
         </div>
         <ToastContainer />
+        {newGame ? (
+          <button onClick={resetGame}>Play New Game?</button>
+        ) : (
+          <p>Thanks for playing!</p>
+        )}
       </div>
     </div>
   );
