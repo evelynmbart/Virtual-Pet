@@ -39,7 +39,7 @@ function App() {
       setHunger((prevHunger) => {
         if (prevHunger == 0) {
           clearInterval(interval);
-          return handleGameOver();
+          return 0;
         }
         return prevHunger - 1;
       });
@@ -52,7 +52,7 @@ function App() {
       setHappiness((prevHappiness) => {
         if (prevHappiness == 0) {
           clearInterval(interval);
-          return handleGameOver();
+          return 0;
         }
         return prevHappiness - 1;
       });
@@ -66,7 +66,7 @@ function App() {
       setEnergy((prevEnergy) => {
         if (prevEnergy == 0) {
           clearInterval(interval);
-          return handleGameOver();
+          return 0;
         }
         const newEnergy = isDarkMode ? prevEnergy + 1 : prevEnergy - 1;
         if (newEnergy > MAX_STATS) return MAX_STATS;

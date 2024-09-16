@@ -21,8 +21,6 @@ export function HungerStat({ hunger }) {
               borderRadius: "20px",
               transition: "width 0.1s ease-in-out",
             }}
-
-            // if hunger > 50 display green, if hunger is < 50 and > 20 display orange, if hunger < 20 display red
           ></div>
         </div>
       </div>
