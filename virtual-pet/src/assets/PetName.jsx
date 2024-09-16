@@ -18,7 +18,7 @@ export function PetName({
               value={name}
               className="pet-name-input"
               onChange={handleNameChange}
-              placeholder="Fluffy"
+              placeholder="Buster"
             />
           </label>
           <button className="submit-name-btn">Submit</button>

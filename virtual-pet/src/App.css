@@ -83,8 +83,9 @@ label {
   font-size: 2.5rem;
 }
 
-.submit-name-button {
+.submit-name-btn {
   color: var(--secondary-text-color);
+  margin-left: 10px;
 }
 
 .action-btns {
@@ -182,4 +183,8 @@ button:hover {
   background-color: #e0e0df;
   height: 10px;
   border-radius: 20px;
+}
+
+input::placeholder {
+  color: #92b2be;
 }

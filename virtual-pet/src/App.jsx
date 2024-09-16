@@ -32,7 +32,6 @@ function App() {
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [isEditMode, setIsEditMode] = useState(true);
   const [name, setName] = useState("");
-  const [newGame, setNewGame] = useState(false);
 
   // DECREMENT INTERVAL IN USEEFFECT
   useEffect(() => {
@@ -176,17 +175,8 @@ function App() {
     setIsEditMode(!isEditMode);
   };
 
-  const handleGameOver = () => {
-    alert("Uh oh! Your pet has passed!");
-    setNewGame(!newGame);
-  };
-
-  const resetGame = () => {
-    setHunger(MAX_STATS);
-    setHappiness(MAX_STATS);
-    setEnergy(MAX_STATS);
-    isEditMode(true);
-  };
+  // if hunger/happiness/energy is in the red (less than 20)
+  // toast.error  pet is about to die!
 
   return (
     <div className="html" data-theme={isDarkMode ? "dark" : "light"}>
@@ -229,11 +219,6 @@ function App() {
           <NaptimeBtn napTime={napTime} isDarkMode={isDarkMode} />
         </div>
         <ToastContainer />
-        {newGame ? (
-          <button onClick={resetGame}>Play New Game?</button>
-        ) : (
-          <p>Thanks for playing!</p>
-        )}
       </div>
     </div>
   );
