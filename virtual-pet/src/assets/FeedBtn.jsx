@@ -12,9 +12,18 @@ export function FeedBtn({
   const toggleFoodDropdown = () => {
     setIsFoodClicked(!isFoodClicked);
   };
+
+  console.log(isFoodClicked);
   return (
     <div>
-      <button className="btn">
+      <button
+        className="btn"
+        style={{
+          borderBottom: isFoodClicked
+            ? "2px dotted var(--tertiary-text-color)"
+            : "1px solid white",
+        }}
+      >
         <div className="btn-title" onClick={toggleFoodDropdown}>
           <GiDogBowl size={30} />
           Feed
@@ -24,6 +33,9 @@ export function FeedBtn({
         className="dropdown-options"
         style={{
           display: isFoodClicked ? "block" : "none",
+          borderTop: isFoodClicked
+            ? "none"
+            : "1px solid var(--tertiary-text-color)",
         }}
       >
         <div id="budget-food" onClick={budgetFoodBoost}>

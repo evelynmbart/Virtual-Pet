@@ -125,20 +125,20 @@ label {
 }
 
 .dropdown-options {
-  font-size: 1rem;
+  font-size: 1.1rem;
   display: flex;
   gap: 20px;
+  height: 70px;
+  width: 100%;
   color: var(--tertiary-text-color);
   text-align: center;
   background-color: var(--primary-text-color);
   cursor: pointer;
+  border-radius: 20px;
 }
 
 .dropdown-options > div:hover {
   color: var(--secondary-text-color);
-  border-radius: 20px;
-  /* background-color: var(--tertiary-text-color); */
-  overflow: hidden;
   cursor: pointer;
 }
 
