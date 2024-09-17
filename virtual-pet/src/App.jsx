@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { ToastContainer, toast } from "react-toastify";
-import { MdOutlinePets, MdEdit } from "react-icons/md";
+import { MdOutlinePets, MdOutlineArrowDownward } from "react-icons/md";
 import "react-toastify/dist/ReactToastify.css";
 import "./App.css";
 import {
@@ -197,12 +197,18 @@ function App() {
           <MdOutlinePets className="pawSix" />
         </h2>
       </nav>
-      <div className="stats">
-        <HungerStat hunger={hunger} />
-        <HappinessStat happiness={happiness} />
-        <EnergyStat energy={energy} />
+      <div className="outside-and-stats">
+        <button className="door">
+          Click <MdOutlineArrowDownward size={20} /> to go outside!
+        </button>
+        <div className="stats">
+          <HungerStat hunger={hunger} />
+          <HappinessStat happiness={happiness} />
+          <EnergyStat energy={energy} />
+        </div>
       </div>
-      <div className="main-content">
+
+      <div className="pet-content">
         <PetName
           handleNameChange={handleNameChange}
           handleNameSubmit={handleNameSubmit}

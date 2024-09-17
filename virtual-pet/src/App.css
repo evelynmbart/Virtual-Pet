@@ -4,6 +4,8 @@
   background-color: var(--background-color);
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
   font-family: "DynaPuff", system-ui;
   background-image: url("../public/imgs/livingroom\ copy.png");
   background-size: 100vw 100vh;
@@ -14,6 +16,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 90%;
   padding: 40px 20px;
   margin: 15px;
   background-color: var(--foreground-color);
@@ -49,7 +52,38 @@
   gap: 10px;
 }
 
-.main-content {
+.door {
+  height: 550px;
+  font-size: 1rem;
+  background-color: transparent;
+  width: 25%;
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  border: none;
+  text-align: center;
+  cursor: pointer;
+  font-family: "Dynapuff", system-ui;
+  gap: 5px;
+}
+
+.outside-and-stats {
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
+}
+
+.stats {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  color: var(--secondary-text-color);
+  gap: 10px;
+  margin: 20px;
+  width: 35%;
+}
+
+.pet-content {
   display: flex;
   height: 100%;
   width: 100%;
@@ -89,6 +123,16 @@ label {
 .submit-name-btn {
   color: var(--secondary-text-color);
   margin-left: 10px;
+  border-radius: 20px;
+  border: 1px solid var(--tertiary-text-color);
+  padding: 5px 10px;
+  font-family: "DynaPuff", system-ui;
+  background-color: white;
+}
+
+.submit-name-btn:hover {
+  background-color: var(--secondary-text-color);
+  color: white;
 }
 
 .action-btns {
@@ -99,20 +143,12 @@ label {
   height: 110px;
 }
 
-.stats {
-  display: flex;
-  flex-direction: column;
-  align-items: end;
-  color: var(--secondary-text-color);
-  gap: 10px;
-  margin: 20px;
-}
-
 .btn-title {
   display: flex;
   gap: 10px;
   align-items: center;
   cursor: pointer;
+  justify-content: center;
 }
 
 .btn {
@@ -123,10 +159,16 @@ label {
   height: 50px;
   justify-content: center;
   border: 1px solid var(--tertiary-text-color);
+  border-radius: 20px;
+  background-color: var(--tertiary-text-color);
+  color: var(--primary-text-color);
+  font-family: "DynaPuff", system-ui;
 }
 
 .btn:hover {
-  border: 1px solid var(--background-color);
+  border: 1px solid var(--tertiary-text-color);
+  background-color: var(--background-color);
+  color: var(--tertiary-text-color);
 }
 
 .dropdown-options {
@@ -163,7 +205,7 @@ label {
   align-items: center;
   gap: 30px;
 }
-button {
+/* button {
   background-color: var(--primary-text-color);
   font-family: "DynaPuff", system-ui;
   color: var(--tertiary-text-color);
@@ -174,13 +216,13 @@ button {
   align-items: center;
   border: 1px solid var(--tertiary-text-color);
   gap: 10px;
-}
+} */
 
-button:hover {
+/* button:hover {
   background-color: var(--tertiary-text-color);
   color: white;
   border: 1px solid white;
-}
+} */
 
 .progress-bar-container {
   width: 300px;
