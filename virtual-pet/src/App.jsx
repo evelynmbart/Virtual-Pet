@@ -67,6 +67,8 @@ function App() {
         if (prevEnergy == 0) {
           clearInterval(interval);
           return 0;
+        } else if (prevEnergy >= 100) {
+          setIsDarkMode(false);
         }
         const newEnergy = isDarkMode ? prevEnergy + 1 : prevEnergy - 1;
         if (newEnergy > MAX_STATS) return MAX_STATS;
@@ -121,6 +123,10 @@ function App() {
   //if budget is clicked, set hunger to hunger + budget
   // if regular is clicked '' ''
   // if luxury is clicked '' ''
+
+  /*
+  if energy >= 100 isDarkMode = false
+   */
 
   const budgetHappinessBoost = () => {
     const newHappiness = happiness + BUDGET_HAPPINESS_BOOST;
