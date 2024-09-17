@@ -12,8 +12,6 @@ export function FeedBtn({
   const toggleFoodDropdown = () => {
     setIsFoodClicked(!isFoodClicked);
   };
-
-  console.log(isFoodClicked);
   return (
     <div>
       <button
@@ -21,7 +19,7 @@ export function FeedBtn({
         style={{
           borderBottom: isFoodClicked
             ? "2px dotted var(--tertiary-text-color)"
-            : "1px solid white",
+            : "1px solid var(--background-color)",
         }}
       >
         <div className="btn-title" onClick={toggleFoodDropdown}>

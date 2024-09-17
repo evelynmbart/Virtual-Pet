@@ -17,7 +17,7 @@ export function PlayBtn({
         style={{
           borderBottom: isPlayClicked
             ? "2px dotted var(--tertiary-text-color)"
-            : "1px solid white",
+            : "1px solid var(--background-color)",
         }}
       >
         <div className="btn-title" onClick={togglePlayDropdown}>
