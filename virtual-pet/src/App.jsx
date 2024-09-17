@@ -24,6 +24,9 @@ import { HungerStat } from "./assets/HungerStat";
 import { HappinessStat } from "./assets/HappinessStat";
 import { EnergyStat } from "./assets/EnergyStat";
 import { PetName } from "./assets/PetName";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { Backyard } from "./PageComponents/Backyard";
+import "./PageComponents/Backyard.css";
 
 function App() {
   const [hunger, setHunger] = useState(MAX_STATS);
@@ -80,9 +83,17 @@ function App() {
 
   // ACTION INCREASING BUTTONS
 
+  // const losingLifeWarning = () => {
+  //   hunger < 20
+  //     ? toast.error("Quick feed your pet before it&apos too late!")
+  //     : null;
+  // };
+
   const budgetFoodBoost = () => {
     const newHunger = hunger + BUDGET_FEED_BOOST;
-    if (newHunger > MAX_STATS) {
+    if (hunger < 20) {
+      console.log("Quick feed your pet before it&apos too late!");
+    } else if (newHunger > MAX_STATS) {
       toast.warn("Stop! Your pet will pop!", {
         position: "bottom-right",
         autoClose: 2000,
@@ -185,6 +196,9 @@ function App() {
   // toast.error  pet is about to die!
 
   return (
+    // <Router>
+    //   <Routes>
+    //     <Route path="/">
     <div className="html" data-theme={isDarkMode ? "dark" : "light"}>
       <nav className="navbar">
         <h2 className="title">
@@ -233,6 +247,12 @@ function App() {
         <ToastContainer />
       </div>
     </div>
+    //     </Route>
+    //     <Route path="/backyard">
+    //       <Backyard />
+    //     </Route>
+    //   </Routes>
+    // </Router>
   );
 }
 
