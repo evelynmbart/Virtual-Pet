@@ -6,6 +6,7 @@
   flex-direction: column;
   font-family: "DynaPuff", system-ui;
   background-image: url("../public/imgs/livingroom\ copy.png");
+  background-size: 100vw 100vh;
   object-fit: cover;
 }
 
