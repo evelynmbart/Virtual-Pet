@@ -189,7 +189,7 @@ export function Home() {
   // toast.error  pet is about to die!
 
   return (
-    <div className="html" data-theme={isDarkMode ? "dark" : "light"}>
+    <div className="home" data-theme={isDarkMode ? "dark" : "light"}>
       <div className="outside-and-stats">
         <button className="door">
           Click <MdOutlineArrowDownward size={20} /> to go outside!
