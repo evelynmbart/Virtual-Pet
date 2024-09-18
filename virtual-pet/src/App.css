@@ -1,5 +1,6 @@
 .home,
-.dogpark {
+.dogpark,
+.backyard {
   background-image: url("../public/imgs/livingroom\ copy.png");
   background-size: 100vw 100vh;
   height: 100vh;

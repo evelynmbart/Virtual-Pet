@@ -31,6 +31,9 @@ function App() {
           <NavLink to="/" className="link" style={hamburgerMenuStyles}>
             Home
           </NavLink>
+          <NavLink to="backyard" className="link" style={hamburgerMenuStyles}>
+            Backyard
+          </NavLink>
           <NavLink to="dogpark" className="link" style={hamburgerMenuStyles}>
             Dog Park
           </NavLink>
