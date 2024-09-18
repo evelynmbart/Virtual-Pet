@@ -13,13 +13,13 @@ import {
   LUXURY_FEED_BOOST,
   LUXURY_HAPPINESS_BOOST,
 } from "../settings.js";
-import { FeedBtn } from "../FeedBtn.jsx";
-import { PlayBtn } from "../PlayBtn.jsx";
-import { NaptimeBtn } from "../NaptimeBtn.jsx";
-import { HungerStat } from "../HungerStat.jsx";
-import { HappinessStat } from "../HappinessStat.jsx";
-import { EnergyStat } from "../EnergyStat.jsx";
-import { PetName } from "../PetName.jsx";
+import { FeedBtn } from "../Stats&Buttons/FeedBtn.jsx";
+import { PlayBtn } from "../Stats&Buttons/PlayBtn.jsx";
+import { NaptimeBtn } from "../Stats&Buttons/NaptimeBtn.jsx";
+import { HungerStat } from "../Stats&Buttons/HungerStat.jsx";
+import { HappinessStat } from "../Stats&Buttons/HappinessStat.jsx";
+import { EnergyStat } from "../Stats&Buttons/EnergyStat.jsx";
+import { PetName } from "../Stats&Buttons/PetName.jsx";
 
 export function Dogpark() {
   const [hunger, setHunger] = useState(MAX_STATS);
