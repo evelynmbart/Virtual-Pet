@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { ToastContainer, toast } from "react-toastify";
-import { MdOutlinePets, MdOutlineArrowDownward } from "react-icons/md";
+import { MdOutlineArrowDownward } from "react-icons/md";
 import "react-toastify/dist/ReactToastify.css";
 import {
   MAX_STATS,
@@ -190,17 +190,6 @@ export function Home() {
 
   return (
     <div className="html" data-theme={isDarkMode ? "dark" : "light"}>
-      <nav className="navbar">
-        <h2 className="title">
-          <MdOutlinePets className="pawOne" />
-          <MdOutlinePets className="pawTwo" />
-          <MdOutlinePets className="pawThree" />
-          VIRTUAL PET
-          <MdOutlinePets className="pawFour" />
-          <MdOutlinePets className="pawFive" />
-          <MdOutlinePets className="pawSix" />
-        </h2>
-      </nav>
       <div className="outside-and-stats">
         <button className="door">
           Click <MdOutlineArrowDownward size={20} /> to go outside!
