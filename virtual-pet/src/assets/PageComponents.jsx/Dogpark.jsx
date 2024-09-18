@@ -128,8 +128,8 @@ export function Dogpark() {
   // if luxury is clicked '' ''
 
   /*
-    if energy >= 100 isDarkMode = false
-     */
+      if energy >= 100 isDarkMode = false
+       */
 
   const budgetHappinessBoost = () => {
     const newHappiness = happiness + BUDGET_HAPPINESS_BOOST;

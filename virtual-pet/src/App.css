@@ -1,16 +1,11 @@
 .home,
 .dogpark,
 .backyard {
-  background-image: url("../public/imgs/livingroom\ copy.png");
-  background-size: 100vw 100vh;
-  height: 100vh;
-  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
   font-family: "DynaPuff", system-ui;
-  object-fit: cover;
 }
 
 .navbar {
@@ -244,6 +239,13 @@ label {
 
 input::placeholder {
   color: #92b2be;
+}
+
+.home {
+  background-image: url("../public/imgs/livingroom\ copy.png");
+  background-size: 100vw 100vh;
+  width: 100%;
+  height: 100vh;
 }
 
 .dogpark {
