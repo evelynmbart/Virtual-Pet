@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { ToastContainer, toast } from "react-toastify";
-import { MdOutlineArrowDownward } from "react-icons/md";
 import "react-toastify/dist/ReactToastify.css";
 import {
   MAX_STATS,
@@ -185,40 +184,38 @@ export function Dogpark() {
     setIsEditMode(!isEditMode);
   };
   return (
-    <div className="html" data-theme={isDarkMode ? "dark" : "light"}>
-      <div className="dogpark">
-        <div className="outside-and-stats">
-          <div className="stats">
-            <HungerStat hunger={hunger} />
-            <HappinessStat happiness={happiness} />
-            <EnergyStat energy={energy} />
-          </div>
+    <div className="dogpark" data-theme={isDarkMode ? "dark" : "light"}>
+      <div className="outside-and-stats">
+        <div className="stats">
+          <HungerStat hunger={hunger} />
+          <HappinessStat happiness={happiness} />
+          <EnergyStat energy={energy} />
         </div>
+      </div>
 
-        <div className="pet-content">
-          <PetName
-            handleNameChange={handleNameChange}
-            handleNameSubmit={handleNameSubmit}
-            isEditMode={isEditMode}
-            setIsEditMode={setIsEditMode}
-            name={name}
+      <div className="pet-content">
+        <PetName
+          handleNameChange={handleNameChange}
+          handleNameSubmit={handleNameSubmit}
+          isEditMode={isEditMode}
+          setIsEditMode={setIsEditMode}
+          name={name}
+        />
+        <div className="action-btns">
+          <FeedBtn
+            budgetFoodBoost={budgetFoodBoost}
+            regularFoodBoost={regularFoodBoost}
+            luxuryFoodBoost={luxuryFoodBoost}
           />
-          <div className="action-btns">
-            <FeedBtn
-              budgetFoodBoost={budgetFoodBoost}
-              regularFoodBoost={regularFoodBoost}
-              luxuryFoodBoost={luxuryFoodBoost}
-            />
-            <PlayBtn
-              budgetHappinessBoost={budgetHappinessBoost}
-              regularHappinessBoost={regularHappinessBoost}
-              luxuryHappinessBoost={luxuryHappinessBoost}
-            />
+          <PlayBtn
+            budgetHappinessBoost={budgetHappinessBoost}
+            regularHappinessBoost={regularHappinessBoost}
+            luxuryHappinessBoost={luxuryHappinessBoost}
+          />
 
-            <NaptimeBtn napTime={napTime} isDarkMode={isDarkMode} />
-          </div>
-          <ToastContainer />
+          <NaptimeBtn napTime={napTime} isDarkMode={isDarkMode} />
         </div>
+        <ToastContainer />
       </div>
     </div>
   );

@@ -3,6 +3,7 @@ import { Dogpark } from "./assets/PageComponents.jsx/Dogpark";
 import { Home } from "./assets/PageComponents.jsx/Home";
 import { MdOutlinePets } from "react-icons/md";
 import { RxHamburgerMenu } from "react-icons/rx";
+import { Backyard } from "./assets/PageComponents.jsx/Backyard";
 import { useState } from "react";
 import "./App.css";
 
@@ -46,6 +47,7 @@ function App() {
       </nav>
       <Routes>
         <Route index element={<Home />}></Route>
+        <Route path="backyard" element={<Backyard />}></Route>
         <Route path="dogpark" element={<Dogpark />}></Route>
       </Routes>
     </BrowserRouter>
